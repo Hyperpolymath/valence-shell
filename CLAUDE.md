@@ -327,7 +327,14 @@ Using both Coq (Calculus of Inductive Constructions) and Isabelle (Higher-Order 
 ---
 
 **Last Updated**: 2025-11-22
-**Version**: 0.3.0 (Polyglot verification complete, extraction framework in place)
-**Status**: Research Prototype with Formal Guarantees - Not Production Ready
+**Version**: 0.4.0 (Composition & Equivalence theorems added, SMT validation, Container infrastructure)
+**Status**: Research Prototype with Formal Guarantees + Algebraic Structure - Not Production Ready
 
-**Major Update**: Filesystem operations proven reversible in 5 proof assistants (Coq, Lean 4, Agda, Isabelle/HOL, Mizar). Extraction to OCaml and reference Elixir implementation complete. ~130 formal proofs, ~2,400 lines of code.
+**Major Updates**:
+- Phase 1-2 Complete: Filesystem operations proven reversible in 5 proof assistants
+- ~170 formal proofs across 6 verification systems (5 manual + Z3 SMT)
+- Composition theory: operation sequences proven reversible
+- Equivalence relations: algebraic structure established
+- CNO connection: reversible ops create identity element
+- Container infrastructure: reproducible verification environment
+- ~5,200 total lines (proofs + implementation + docs + infrastructure)
