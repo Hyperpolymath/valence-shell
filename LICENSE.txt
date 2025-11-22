@@ -1,0 +1,138 @@
+Valence Shell (vsh) - Dual License
+
+This software is dual-licensed under the MIT License AND the Palimpsest License v0.8.
+You may use this software under the terms of either license.
+
+================================================================================
+MIT License
+================================================================================
+
+Copyright (c) 2025 Valence Shell Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+Palimpsest License v0.8
+================================================================================
+
+PREAMBLE
+
+The Palimpsest License is designed to protect the historical record of software
+development while allowing maximum freedom for use and modification. It
+requires that derivative works preserve the original authorship information
+and modification history, creating a "palimpsest" of development.
+
+TERMS AND CONDITIONS
+
+1. DEFINITIONS
+
+   "Original Work" means the software and associated documentation files
+   as originally published by the copyright holder.
+
+   "Derivative Work" means any work based upon or derived from the Original
+   Work, including modifications, translations, or adaptations.
+
+   "Palimpsest Record" means the preserved history of authorship, modifications,
+   and attribution required by this license.
+
+2. GRANT OF RIGHTS
+
+   Subject to the terms of this license, you are granted:
+
+   a) The right to use, copy, modify, merge, publish, distribute, sublicense,
+      and/or sell copies of the Original Work or Derivative Works
+
+   b) The right to permit persons to whom the work is furnished to do the same
+
+   c) The right to create Derivative Works
+
+3. PALIMPSEST REQUIREMENTS
+
+   All Derivative Works must include:
+
+   a) A clear statement that the work is derived from the Original Work
+
+   b) Preservation of all original copyright notices and attribution
+
+   c) A record of significant modifications, including:
+      - Date of modification
+      - Author of modification
+      - Description of changes
+
+   d) This license file with both original and modification records intact
+
+4. ATTRIBUTION
+
+   You must give appropriate credit to the original authors, provide a link
+   to the license, and indicate if changes were made. You may do so in any
+   reasonable manner, but not in any way that suggests the licensor endorses
+   you or your use.
+
+5. NO WARRANTY
+
+   THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+   THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE WORK OR THE USE OR OTHER DEALINGS IN THE
+   WORK.
+
+6. TERMINATION
+
+   This license automatically terminates if you fail to comply with its terms.
+   Upon termination, you must cease all use and distribution of the work.
+
+7. COMPATIBILITY
+
+   This license is compatible with and may be used alongside:
+   - MIT License
+   - Apache License 2.0
+   - BSD licenses
+   - GPL v3 (when used as the more restrictive license)
+
+================================================================================
+MODIFICATION HISTORY (Palimpsest Record)
+================================================================================
+
+Original Work:
+- Copyright: 2025 Valence Shell Contributors
+- License: MIT + Palimpsest v0.8
+- Description: Formally verified shell implementing MAA framework
+- Repository: https://github.com/Hyperpolymath/valence-shell
+              https://gitlab.com/non-initiate/rhodinised/vsh
+
+Modifications:
+[None yet - this section will be populated by derivative works]
+
+================================================================================
+CONTRIBUTOR ATTRIBUTION
+================================================================================
+
+Primary Development:
+- Initial design and architecture (2025)
+- Formal verification framework (Coq, Lean 4, Agda, Isabelle, Mizar)
+- MAA (Mutually Assured Accountability) framework
+- Phase 1-3 implementation
+
+See MAINTAINERS.md and git history for complete contributor list.
+
+================================================================================
+
+For questions about licensing, see CONTRIBUTING.md or contact the maintainers.
