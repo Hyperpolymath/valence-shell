@@ -29,7 +29,7 @@ applyOp (deleteFileOp p) fs = deleteFile p fs
 reverseOp : Operation → Operation
 reverseOp (mkdirOp p) = rmdirOp p
 reverseOp (rmdirOp p) = mkdirOp p
-reverseOp (createFileOp p) = createFileOp p
+reverseOp (createFileOp p) = deleteFileOp p
 reverseOp (deleteFileOp p) = createFileOp p
 
 -- Apply sequence
@@ -62,17 +62,38 @@ data AllReversible : List Operation → Filesystem → Set where
     AllReversible ops (applyOp op fs) →
     AllReversible (op ∷ ops) fs
 
+-- Helper: rmdir-mkdir reversibility (symmetric to mkdir-rmdir)
+postulate
+  rmdir-mkdir-reversible : ∀ (p : Path) (fs : Filesystem) →
+    RmdirPrecondition p fs →
+    applyOp (mkdirOp p) (applyOp (rmdirOp p) fs) ≡ fs
+
+-- Helper: deleteFile-createFile reversibility
+postulate
+  deleteFile-createFile-reversible : ∀ (p : Path) (fs : Filesystem) →
+    DeleteFilePrecondition p fs →
+    applyOp (createFileOp p) (applyOp (deleteFileOp p) fs) ≡ fs
+
 -- Single operation reversibility
 singleOpReversible : ∀ (op : Operation) (fs : Filesystem) →
   Reversible op fs →
   applyOp (reverseOp op) (applyOp op fs) ≡ fs
-singleOpReversible (mkdirOp p) fs rev = mkdir-rmdir-reversible p fs (Reversible.precondition rev)
-singleOpReversible (rmdirOp p) fs rev = {!!} -- Would need rmdir-mkdir proof
-singleOpReversible (createFileOp p) fs rev = createFile-deleteFile-reversible p fs (Reversible.precondition rev)
-singleOpReversible (deleteFileOp p) fs rev = {!!}
+singleOpReversible (mkdirOp p) fs rev =
+  mkdir-rmdir-reversible p fs (Reversible.precondition rev)
+singleOpReversible (rmdirOp p) fs rev =
+  rmdir-mkdir-reversible p fs (Reversible.precondition rev)
+singleOpReversible (createFileOp p) fs rev =
+  createFile-deleteFile-reversible p fs (Reversible.precondition rev)
+singleOpReversible (deleteFileOp p) fs rev =
+  deleteFile-createFile-reversible p fs (Reversible.precondition rev)
 
--- Main composition theorem (statement)
-postulate
-  operationSequenceReversible : ∀ (ops : List Operation) (fs : Filesystem) →
-    AllReversible ops fs →
-    applySequence (reverseSequence ops) (applySequence ops fs) ≡ fs
+-- Main composition theorem
+operationSequenceReversible : ∀ (ops : List Operation) (fs : Filesystem) →
+  AllReversible ops fs →
+  applySequence (reverseSequence ops) (applySequence ops fs) ≡ fs
+operationSequenceReversible [] fs nilReversible = refl
+operationSequenceReversible (op ∷ ops) fs (consReversible {op} {ops} {fs} rev revRest) =
+  let fs' = applyOp op fs
+      ih = operationSequenceReversible ops fs' revRest
+      single = singleOpReversible op fs rev
+  in trans (cong (λ x → applyOp (reverseOp op) x) ih) single

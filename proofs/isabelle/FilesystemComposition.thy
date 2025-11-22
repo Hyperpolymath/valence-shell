@@ -73,9 +73,31 @@ theorem operation_sequence_reversible:
   assumes "all_reversible ops fs"
   shows "apply_sequence (reverse_sequence ops) (apply_sequence ops fs) = fs"
   using assms
-  apply (induction ops arbitrary: fs)
-   apply (simp add: reverse_sequence_def)
-  apply (simp add: reverse_sequence_def)
-  sorry (* Full proof would follow Coq structure *)
+proof (induction ops arbitrary: fs)
+  case Nil
+  then show ?case
+    by (simp add: reverse_sequence_def)
+next
+  case (Cons op ops')
+  obtain hrev_op hrev_rest where
+    split: "reversible op fs" "all_reversible ops' (apply_op op fs)"
+    using Cons.prems by auto
+
+  have ih: "apply_sequence (reverse_sequence ops') (apply_sequence ops' (apply_op op fs)) = apply_op op fs"
+    using Cons.IH[OF split(2)] by auto
+
+  have single: "apply_op (reverse_op op) (apply_op op fs) = fs"
+  proof -
+    obtain hpre hrev where "op_precondition op fs" "op_precondition (reverse_op op) (apply_op op fs)"
+      using split(1) unfolding reversible_def by auto
+    show ?thesis
+      using \<open>op_precondition op fs\<close> \<open>op_precondition (reverse_op op) (apply_op op fs)\<close>
+      by (cases op; simp add: mkdir_rmdir_reversible create_file_delete_file_reversible)
+  qed
+
+  show ?case
+    unfolding reverse_sequence_def
+    by (simp add: ih single)
+qed
 
 end
