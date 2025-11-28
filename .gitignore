@@ -1,0 +1,103 @@
+# Valence Shell - Git Ignore File
+
+# Coq
+*.vo
+*.vok
+*.vos
+*.glob
+*.aux
+.*.aux
+.coq-native/
+*.cache/
+
+# Lean 4
+/lake-packages/
+/.lake/
+/build/
+*.olean
+*.trace
+
+# Agda
+*.agdai
+.Agda/
+
+# Isabelle
+*.thy~
+.isabelle/
+output/
+
+# Mizar
+*.xml
+*.err
+
+# Z3
+*.smt2.out
+
+# OCaml
+*.cmi
+*.cmo
+*.cmx
+*.cma
+*.cmxa
+*.o
+*.a
+*.so
+*.dylib
+_build/
+*.byte
+*.native
+*.opt
+
+# Elixir
+/_build/
+/cover/
+/deps/
+/doc/
+/.fetch
+erl_crash.dump
+*.ez
+*.beam
+/config/*.secret.exs
+.elixir_ls/
+
+# Nix
+result
+result-*
+
+# Container builds
+*.tar
+*.tar.gz
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.#*
+\#*\#
+
+# Build artifacts
+/target/
+/dist/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Project-specific
+/experiments/
+/scratch/
+/local/
+
+# But keep some directories
+!.well-known/
+!.github/
+!.gitlab/

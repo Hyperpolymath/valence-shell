@@ -1,0 +1,73 @@
+# Valence Shell - Git Attributes
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.v text eol=lf
+*.lean text eol=lf
+*.agda text eol=lf
+*.thy text eol=lf
+*.miz text eol=lf
+*.smt2 text eol=lf
+*.ml text eol=lf
+*.ex text eol=lf
+*.exs text eol=lf
+*.sh text eol=lf
+
+# Documentation
+*.md text eol=lf
+*.adoc text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+
+# Config files
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.nix text eol=lf
+*.lock text eol=lf
+justfile text eol=lf
+Containerfile text eol=lf
+Dockerfile text eol=lf
+
+# Scripts
+*.bash text eol=lf
+*.zsh text eol=lf
+
+# Archives (binary)
+*.tar binary
+*.gz binary
+*.zip binary
+*.7z binary
+
+# Images (binary)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+
+# Git configuration for diffs
+*.v diff=coq
+*.lean diff
+*.agda diff
+*.thy diff
+*.ml diff=ocaml
+
+# Export ignore (for git archive)
+.gitattributes export-ignore
+.gitignore export-ignore
+.gitlab-ci.yml export-ignore
+.github/ export-ignore
+
+# Linguist overrides (for GitHub language stats)
+*.v linguist-language=Coq
+*.lean linguist-language=Lean
+*.agda linguist-language=Agda
+*.thy linguist-language=Isabelle
+*.miz linguist-language=Mizar
+docs/* linguist-documentation
+examples/* linguist-documentation
